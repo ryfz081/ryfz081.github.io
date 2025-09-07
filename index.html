@@ -3,37 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>welcome to ryan zhang's vault </title>
+  <title>welcome to ryan zhang's vault</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .active-link {
+      color: #22d3ee; /* cyan-400 */
+      font-weight: 600;
+    }
+
+    /* Typewriter animation */
+    .typewriter {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: .15em solid #22d3ee; /* cursor */
+      animation:
+        typing 2.5s steps(30, end),
+        blink-caret .75s step-end infinite;
+      display: inline-block;
+      padding-bottom: 0.2em; /* 👈 gives room for descenders */
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #22d3ee }
+    }
+
+    /* Fade + slide-up animation for description */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.5s ease forwards;
+      animation-delay: 2.6s; /* starts after typewriter finishes */
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans">
+
   <!-- Navbar -->
   <nav class="fixed w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg">
-    <h1 class="text-xl font-bold text-cyan-400">ryan zhang</h1>
+    <a href="index.html" class="text-xl font-bold text-cyan-400">
+      <h1>ryan zhang</h1>
+    </a>
     <ul class="flex space-x-6">
-      <li><a href="index.html" class="hover:text-cyan-400">About</a></li>
-      <li><a href="music.html" class="hover:text-cyan-400">Music</a></li>
-      <li><a href="coding.html" class="hover:text-cyan-400">Coding</a></li>
-      <li><a href="resume.html" class="hover:text-cyan-400">Resume</a></li>
-    </ul>
-  </nav>
-  <nav class="fixed w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg">
-    <h1 class="text-xl font-bold text-cyan-400">ryan zhang</h1>
-    <ul class="flex space-x-6">
-      <li><a href="index.html" class="hover:text-cyan-400">About</a></li>
-      <li><a href="music.html" class="hover:text-cyan-400">Music</a></li>
-      <li><a href="coding.html" class="hover:text-cyan-400">Coding</a></li>
-      <li><a href="resume.html" class="hover:text-cyan-400">Resume</a></li>
+      <li><a href="index.html">About</a></li>
+      <li><a href="music.html">Music</a></li>
+      <li><a href="coding.html">Coding</a></li>
+      <li><a href="resume.html">Resume</a></li>
     </ul>
   </nav>
 
   <!-- Content -->
   <section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
-    <h2 class="text-5xl font-extrabold mb-6">i'm <span class="text-cyan-400">ryan zhang</span>.</h2>
-    <p class="text-lg text-gray-400 max-w-2xl">
+    <h2 class="text-5xl font-extrabold mb-6">
+      <span class="typewriter">I'm <span class="text-cyan-400">Ryan Zhang</span>.</span>
+    </h2>
+    <p class="text-lg text-gray-400 max-w-2xl fade-in">
       I'm interested in the intersection of <strong>music and technology</strong>.
       Welcome to my website where you can uncover my portfolio, projects, and more...
     </p>
   </section>
+
+  <!-- Active tab highlighter -->
+  <script>
+    const links = document.querySelectorAll("nav ul li a");
+    const current = window.location.pathname.split("/").pop(); // filename of current page
+    links.forEach(link => {
+      if (link.getAttribute("href") === current || (current === "" && link.getAttribute("href") === "index.html")) {
+        link.classList.add("active-link");
+      }
+    });
+  </script>
+
 </body>
 </html>

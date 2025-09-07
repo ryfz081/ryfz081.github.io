@@ -3,20 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ryan zhang's code vault</title>
+  <title>code vault of ryan zhang</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans">
   <!-- Navbar -->
-  <nav class="fixed w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg">
-    <h1 class="text-xl font-bold text-cyan-400">ryan zhang</h1>
+  <!-- Navbar -->
+  <nav class="fixed w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg z-50">
+    <a href="index.html" class="text-xl font-bold text-cyan-400">
+      <h1>ryan zhang</h1>
+    </a>
     <ul class="flex space-x-6">
-      <li><a href="index.html" class="hover:text-cyan-400">About</a></li>
-      <li><a href="music.html" class="hover:text-cyan-400">Music</a></li>
-      <li><a href="coding.html" class="hover:text-cyan-400">Coding</a></li>
-      <li><a href="resume.html" class="hover:text-cyan-400">Resume</a></li>
+      <li><a href="index.html">About</a></li>
+      <li><a href="music.html">Music</a></li>
+      <li><a href="coding.html">Coding</a></li>
+      <li><a href="resume.html">Resume</a></li>
     </ul>
   </nav>
+
+  <style>
+    .active-link {
+      color: #22d3ee; /* cyan-400 */
+      font-weight: 600;
+    }
+  </style>
+
+  <script>
+    // Highlight active page in navbar
+    const links = document.querySelectorAll("nav ul li a");
+    const current = window.location.pathname.split("/").pop(); // e.g. music.html
+    links.forEach(link => {
+      if (
+        link.getAttribute("href") === current ||
+        (current === "" && link.getAttribute("href") === "index.html")
+      ) {
+        link.classList.add("active-link");
+      }
+    });
+  </script>
+
   <section class="pt-32 px-6 md:px-20">
     <h2 class="text-4xl font-bold mb-12 text-cyan-400">Coding Projects</h2>
     <div class="grid md:grid-cols-2 gap-8">
