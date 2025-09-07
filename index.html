@@ -1,35 +1,39 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Name | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <title>About Me | Your Name</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1>Hello, I’m Your Name 👋</h1>
-    <p>Developer | Designer | Creator</p>
-  </header>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Write a short intro about yourself here.</p>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="#">Project 1</a> – short description</li>
-      <li><a href="#">Project 2</a> – short description</li>
+<body class="bg-gray-900 text-gray-100 font-sans">
+  <!-- Navbar -->
+  <nav class="fixed w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg">
+    <h1 class="text-xl font-bold text-cyan-400">YourName</h1>
+    <ul class="flex space-x-6">
+      <li><a href="index.html" class="hover:text-cyan-400">About</a></li>
+      <li><a href="music.html" class="hover:text-cyan-400">Music</a></li>
+      <li><a href="coding.html" class="hover:text-cyan-400">Coding</a></li>
+      <li><a href="resume.html" class="hover:text-cyan-400">Resume</a></li>
     </ul>
-  </section>
+  </nav>
+  <nav class="fixed w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg">
+    <h1 class="text-xl font-bold text-cyan-400">YourName</h1>
+    <ul class="flex space-x-6">
+      <li><a href="index.html" class="hover:text-cyan-400">About</a></li>
+      <li><a href="music.html" class="hover:text-cyan-400">Music</a></li>
+      <li><a href="coding.html" class="hover:text-cyan-400">Coding</a></li>
+      <li><a href="resume.html" class="hover:text-cyan-400">Resume</a></li>
+    </ul>
+  </nav>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
-    <p>GitHub: <a href="https://github.com/your-username">your-username</a></p>
+  <!-- Content -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+    <h2 class="text-5xl font-extrabold mb-6">Hey, I’m <span class="text-cyan-400">Your Name</span></h2>
+    <p class="text-lg text-gray-400 max-w-2xl">
+      I’m passionate about <strong>music, coding, and creativity</strong>.
+      Welcome to my portfolio where you can explore my works in audio production, software development, and more.
+    </p>
   </section>
 </body>
 </html>

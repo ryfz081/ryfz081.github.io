@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Music Portfolio | Your Name</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+  <!-- Navbar -->
+  <nav class="fixed w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg">
+    <h1 class="text-xl font-bold text-cyan-400">YourName</h1>
+    <ul class="flex space-x-6">
+      <li><a href="index.html" class="hover:text-cyan-400">About</a></li>
+      <li><a href="music.html" class="hover:text-cyan-400">Music</a></li>
+      <li><a href="coding.html" class="hover:text-cyan-400">Coding</a></li>
+      <li><a href="resume.html" class="hover:text-cyan-400">Resume</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- Music Portfolio -->
+  <section class="pt-32 px-6 md:px-20">
+    <h2 class="text-4xl font-bold mb-12 text-cyan-400">Audio / Music Works</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Example Project -->
+      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-semibold mb-2">Track Title</h3>
+        <audio controls class="w-full mb-4">
+          <source src="your-audio-file.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <p class="text-gray-400">Short description about the piece.</p>
+      </div>
+      <!-- Add more music works -->
+    </div>
+  </section>
+</body>
+</html>
