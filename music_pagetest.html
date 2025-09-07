@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Music Vault of Ryan Zhang</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .active-link { color: #22d3ee; font-weight: 600; }
+
+    /* Collapsible section styles */
+    .collapsible-content {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.5s ease;
+    }
+
+    /* Hover scale animation */
+    .hover-scale {
+      transform: translateZ(0);
+      transition: transform 0.3s ease;
+    }
+    .hover-scale:hover { transform: scale(1.05); }
+
+    button svg {
+      transition: transform 0.3s ease;
+    }
+
+    .collapsible-content.open + button svg {
+      transform: rotate(180deg);
+    }
+
+
+    /* SFX button styles */
+    .sfx-btn {
+      position: relative;
+      overflow: visible;
+      width: 6rem; height: 6rem;
+      border-radius: 50%;
+      background: #06b6d4; /* cyan-500 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #111827; /* gray-900 */
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+    .sfx-btn:hover { transform: scale(1.05); }
+
+    /* Radiating hover splash */
+    .sfx-btn::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background: radial-gradient(circle, rgba(34,211,238,0.3) 20%, transparent 70%);
+      transform: scale(0);
+      transition: transform 0.4s ease;
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .sfx-btn:hover::before { transform: scale(1); }
+    .sfx-btn:active::before {
+      background: radial-gradient(circle, rgba(34,211,238,0.6) 10%, transparent 60%);
+      transform: scale(1.5);
+      transition: transform 0.2s ease;
+    }
+    .sfx-btn span { position: relative; z-index: 10; }
+
+    /* Circular outline for SFX */
+    .sfx-circle {
+      position: absolute;
+      top: -0.15rem;
+      left: -0.15rem;
+      width: 6.3rem;
+      height: 6.3rem;
+      transform: rotate(-90deg);
+      pointer-events: none;
+    }
+    .sfx-circle circle {
+      stroke: #ffffff;
+      stroke-width: 4;
+      fill: none;
+      stroke-dasharray: 339.292; /* circumference = 2πr (r=54) */
+      stroke-dashoffset: 339.292;
+    }
+
+    /* Text under buttons */
+    .sfx-label { color: #d1d5db; font-size: 1.125rem; margin-top: 0.5rem; text-align: center; }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+
+  <!-- Main Navbar -->
+  <!-- Navbar -->
+  <nav class="fixed w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg z-50">
+    <a href="index.html" class="text-xl font-bold text-cyan-400">
+      <h1>ryan zhang</h1>
+    </a>
+    <ul class="flex space-x-6">
+      <li><a href="index.html" class="text-xl">About</a></li>
+      <li><a href="music.html" class="text-xl">Music</a></li>
+      <li><a href="coding.html" class="text-xl">Coding</a></li>
+      <li><a href="resume.html" class="text-xl">Resume</a></li>
+    </ul>
+  </nav>
+
+  <style>
+    .active-link {
+      color: #22d3ee; /* cyan-400 */
+      font-weight: 600;
+    }
+  </style>
+
+  <script>
+    // Highlight active page in navbar
+    const links = document.querySelectorAll("nav ul li a");
+    const current = window.location.pathname.split("/").pop(); // e.g. music.html
+    links.forEach(link => {
+      if (
+        link.getAttribute("href") === current ||
+        (current === "" && link.getAttribute("href") === "index.html")
+      ) {
+        link.classList.add("active-link");
+      }
+    });
+  </script>
+
+  <section class="px-6 md:px-20 pt-40">
+
+    <!-- Lunar Gala -->
+    <button onclick="toggleSection('lunarContent')"
+            class="w-full text-left text-4xl font-bold text-cyan-400 mb-4 hover:text-cyan-300 focus:outline-none flex justify-between items-center">
+      Lunar Gala
+      <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+    <div id="lunarContent" class="collapsible-content bg-gray-800 p-6 rounded-2xl shadow-lg">
+      <div class="mt-4">
+        <!-- YouTube Embed -->
+        <div class="aspect-w-16 aspect-h-9 mb-6 hover-scale overflow-hidden rounded-2xl shadow-lg">
+          <iframe class="w-full h-96"
+                  src="https://www.youtube.com/embed/ydbaQ68yX7Y"
+                  frameborder="0" allowfullscreen>
+          </iframe>
+        </div>
+
+
+        <!-- Audio Embed -->
+        <audio controls class="w-full mb-6">
+          <source src="lunargala25/IMMENSITY_RYANZHANG_MASTER.wav" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+
+        <!-- Credits & Description -->
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">Credits</h3>
+          <p class="text-gray-300 mb-2">
+            Music composed by Ryan Zhang for Carnegie Mellon’s <em>Lunar Gala 2025</em>.
+          </p>
+          <p class="text-gray-400 text-sm">
+            Fashion Designers: Erika Egliskis, Sunny Guo<br>
+            Description: The designers were aiming for an East Asian ocean theme,
+            and I sought to give the viewer an underwater experience to match the
+            stunning aquatic-themed outfits. I used a combination of orchestral instrumentation and synths to set the scene.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Game Music -->
+    <button onclick="toggleSection('vgmContent')"
+            class="w-full text-left text-4xl font-bold text-cyan-400 mb-4 mt-6 hover:text-cyan-300 focus:outline-none">
+      Video Game Music
+    </button>
+    <div id="vgmContent" class="collapsible-content">
+      <div class="mt-4 space-y-6">
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+          <h3 class="text-xl font-semibold mb-2">Desert Exploration Theme (Tanbii)</h3>
+          <audio controls loop class="w-full">
+            <source src="videogamemusic/desert_exploration.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            A fun percussive desert theme when the player explores the desert areas.
+          </p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+          <h3 class="text-xl font-semibold mb-2">Desolate Desert Village (Tanbii)</h3>
+          <audio controls loop class="w-full">
+            <source src="videogamemusic/desert_desolate.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            Ambient and eerie track to give the desolate village a sense of mystery. I used ethnic instrumentation to highlight the desert themes.
+          </p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+          <h3 class="text-xl font-semibold mb-2">Desert Oasis Theme (Tanbii)</h3>
+          <audio controls loop class="w-full">
+            <source src="videogamemusic/desert_oasis.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            A calming track to let the player rest in the oasis. I was going for a spiritual feel.
+          </p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+          <h3 class="text-xl font-semibold mb-2">Racing Game Menu Theme (Game Creation Society)</h3>
+          <audio controls loop class="w-full">
+            <source src="videogamemusic/menu.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            An energetic menu theme for a cartoony racing game.
+          </p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+          <h3 class="text-xl font-semibold mb-2">Shooter Game Loading Screen (Game Creation Society)</h3>
+          <audio controls loop class="w-full">
+            <source src="videogamemusic/loadingscreenshooter.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            A hype UK grime-inspired loading screen theme for a fast paced shooter game.
+          </p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+          <h3 class="text-xl font-semibold mb-2">Calm Theme (Game Creation Society)</h3>
+          <audio controls class="w-full">
+            <source src="videogamemusic/savannah.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            An unused calm theme I originally made for a contemplative cutscene.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Game SFX -->
+    <button onclick="toggleSection('sfxContent')"
+            class="w-full text-left text-4xl font-bold text-cyan-400 mb-4 mt-6 hover:text-cyan-300 focus:outline-none">
+      Video Game SFX
+    </button>
+    <div id="sfxContent" class="collapsible-content">
+      <section class="pt16 px-6 md:px-20">
+        <h2 class="text-3xl font-bold mb-12 text-white-400">Tanbii</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+          <!-- Example SFX button -->
+          <div class="flex flex-col items-center">
+            <button onclick="toggleSFX('questcomplete', this)" class="sfx-btn">
+              <span>Play</span>
+              <svg class="sfx-circle" viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="54"></circle>
+              </svg>
+            </button>
+            <p class="sfx-label">Quest Complete</p>
+            <audio id="questcomplete" src="sfx/questcomplete.mp3"></audio>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <button onclick="toggleSFX('sand', this)" class="sfx-btn">
+              <span>Play</span>
+              <svg class="sfx-circle" viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="54"></circle>
+              </svg>
+            </button>
+            <p class="sfx-label">Bottle of Sand</p>
+            <audio id="sand" src="sfx/sand.mp3"></audio>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <button onclick="toggleSFX('pageturn', this)" class="sfx-btn">
+              <span>Play</span>
+              <svg class="sfx-circle" viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="54"></circle>
+              </svg>
+            </button>
+            <p class="sfx-label">Page Turn</p>
+            <audio id="pageturn" src="sfx/pageturn.mp3"></audio>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <button onclick="toggleSFX('button', this)" class="sfx-btn">
+              <span>Play</span>
+              <svg class="sfx-circle" viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="54"></circle>
+              </svg>
+            </button>
+            <p class="sfx-label">Button Tap</p>
+            <audio id="button" src="sfx/button.mp3"></audio>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="pt-16 px-6 md:px-20">
+        <h2 class="text-3xl font-bold mb-12 text-white-400">Game Creation Society</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+          <div class="flex flex-col items-center">
+            <button onclick="toggleSFX('fogwoman', this)" class="sfx-btn">
+              <span>Play</span>
+              <svg class="sfx-circle" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"></circle></svg>
+            </button>
+            <p class="sfx-label">Woman of the Fog Jumpscare</p>
+            <audio id="fogwoman" src="sfx/fogwoman.mp3"></audio>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <button onclick="toggleSFX('walkerscare', this)" class="sfx-btn">
+              <span>Play</span>
+              <svg class="sfx-circle" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"></circle></svg>
+            </button>
+            <p class="sfx-label">Giant Creature Jumpscare</p>
+            <audio id="walkerscare" src="sfx/walkerscare.mp3"></audio>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <button onclick="toggleSFX('jellyfishscare', this)" class="sfx-btn">
+              <span>Play</span>
+              <svg class="sfx-circle" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"></circle></svg>
+            </button>
+            <p class="sfx-label">Phantom Jellyfish Jumpscare</p>
+            <audio id="jellyfishscare" src="sfx/jellyfishscare.mp3"></audio>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <button onclick="toggleSFX('teleport', this)" class="sfx-btn">
+              <span>Play</span>
+              <svg class="sfx-circle" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"></circle></svg>
+            </button>
+            <p class="sfx-label">Teleport Pad</p>
+            <audio id="teleport" src="sfx/teleport.wav"></audio>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- Personal Works -->
+    <button onclick="toggleSection('personalContent')"
+            class="w-full text-left text-4xl font-bold text-cyan-400 mb-4 mt-6 hover:text-cyan-300 focus:outline-none">
+      Personal Works
+    </button>
+    <div id="personalContent" class="collapsible-content">
+      <div class="flex flex-col md:flex-row gap-12">
+        <!-- Left Column: Instagram Reel + YouTube Video + Descriptions -->
+        <div class="flex flex-col items-center md:w-1/2 space-y-6">
+
+          <!-- Row for Instagram Reel and YouTube Video -->
+          <div class="flex flex-col md:flex-row gap-8 w-full items-center justify-center">
+
+            <!-- Instagram Reel -->
+            <div class="overflow-hidden rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105 aspect-[9/16] w-full max-w-[350px]">
+              <iframe
+                src="https://www.instagram.com/reel/DG8nDM_PyH7/embed"
+                class="w-full h-full"
+                allowfullscreen
+                frameborder="0">
+              </iframe>
+            </div>
+
+            <!-- YouTube Landscape Video -->
+            <div class="overflow-hidden rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105 aspect-[16/9] w-full max-w-[700px]">
+              <iframe
+                src="https://www.youtube.com/embed/4YVK7DoqUfI"
+                class="w-full h-full"
+                allowfullscreen
+                frameborder="0">
+              </iframe>
+            </div>
+
+          </div>
+
+
+
+
+          <!-- Descriptions -->
+          <div class="flex flex-col space-y-2 text-gray-400 text-sm text-center md:text-left">
+            <p>
+              Left: I am creating a Frutiger Aero inspired preset pack for Omnisphere VST. This Instagram reel is a cool demo I made showcasing some of the presets.
+            </p>
+            <p>
+              Right: I wanted to capture the beauty of the aurora borealis and the wintry feeling of Northern Sweden. I introduce a "snow motif" in the beginning, showing the settling night, and then the rapid arpeggios come in, depicting the Northern lights that illuminate the sky.
+            </p>
+          </div>
+
+        </div>
+
+
+
+
+
+
+        <!-- Right Column: Audio Tracks -->
+        <div class="flex flex-col md:w-1/2 space-y-6">
+          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+            <h3 class="text-xl font-semibold mb-2">Cyberlove</h3>
+            <audio controls class="w-full">
+              <source src="personal_projects/cyberlove.wav" type="audio/mpeg">
+            </audio>
+            <p class="text-gray-400 text-sm mt-2">
+              A synthwave pop beat that I plan to add some lyrics over.
+            </p>
+          </div>
+
+          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+            <h3 class="text-xl font-semibold mb-2">Pong</h3>
+            <audio controls class="w-full">
+              <source src="personal_projects/pong.wav" type="audio/mpeg">
+            </audio>
+            <p class="text-gray-400 text-sm mt-2">
+              A complex track with a "ping pong" percussive motif that takes you on an adventure.
+            </p>
+          </div>
+
+          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+            <h3 class="text-xl font-semibold mb-2">Ambition</h3>
+            <audio controls class="w-full">
+              <source src="personal_projects/ambition.wav" type="audio/mpeg">
+            </audio>
+            <p class="text-gray-400 text-sm mt-2">
+              An energetic trap beat with bells and synth leads.
+            </p>
+          </div>
+
+          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+            <h3 class="text-xl font-semibold mb-2">Immerse</h3>
+            <audio controls class="w-full">
+              <source src="personal_projects/immerse.wav" type="audio/mpeg">
+            </audio>
+            <p class="text-gray-400 text-sm mt-2">
+              A trap electronic fusion beat inspired by Sam Gellaitry.
+            </p>
+          </div>
+
+          <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+            <h3 class="text-xl font-semibold mb-2">San Bushmen Beat</h3>
+            <audio controls class="w-full">
+              <source src="personal_projects/afrobeat.wav" type="audio/mpeg">
+            </audio>
+            <p class="text-gray-400 text-sm mt-2">
+              Sampled the chants of the San bushmen who live in the Kalahari desert to make this beat.
+            </p>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Improv Solos -->
+    <button onclick="toggleSection('jazzContent')"
+            class="w-full text-left text-4xl font-bold text-cyan-400 mb-4 mt-6 hover:text-cyan-300 focus:outline-none">
+      Improv Solos
+    </button>
+    <div id="jazzContent" class="collapsible-content">
+      <div class="mt-4 flex flex-col md:flex-row md:justify-center md:items-start gap-8">
+        <div class="w-full max-w-sm aspect-[9/16] mb-8 hover-scale overflow-hidden rounded-2xl shadow-lg">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/ik8gDvygH88" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="w-full max-w-sm aspect-[9/16] mb-8 hover-scale overflow-hidden rounded-2xl shadow-lg">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/CvqJLFOAzrM" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      const button = section.previousElementSibling;
+      const arrow = button.querySelector('svg');
+
+      if(section.style.maxHeight) {
+        section.style.maxHeight = null;
+        arrow.style.transform = 'rotate(0deg)';
+      } else {
+        section.style.maxHeight = section.scrollHeight + "px";
+        arrow.style.transform = 'rotate(180deg)';
+      }
+    }
+
+
+    let currentAudio = null;
+    let currentButton = null;
+
+    function toggleSFX(id, button) {
+      const audio = document.getElementById(id);
+      const circle = button.querySelector('circle');
+      const r = circle.getAttribute('r');
+      const circumference = 2 * Math.PI * r;
+
+      if (currentAudio && currentAudio !== audio) stopAudio(currentAudio, currentButton);
+
+      if(audio.paused) {
+        audio.currentTime = 0;
+        audio.play();
+        button.querySelector('span').textContent = 'Stop';
+        circle.style.stroke = '#ffffff';
+        circle.style.strokeDasharray = circumference;
+        circle.style.strokeDashoffset = circumference;
+        circle.style.transition = `stroke-dashoffset ${audio.duration}s linear`;
+        requestAnimationFrame(() => circle.style.strokeDashoffset = 0);
+        currentAudio = audio;
+        currentButton = button;
+        audio.onended = () => stopAudio(audio, button);
+      } else {
+        stopAudio(audio, button);
+      }
+    }
+
+    function stopAudio(audio, button) {
+      audio.pause();
+      audio.currentTime = 0;
+      const circle = button.querySelector('circle');
+      circle.style.transition = 'none';
+      circle.style.strokeDashoffset = 2 * Math.PI * circle.getAttribute('r');
+      button.querySelector('span').textContent = 'Play';
+      if(currentAudio === audio) currentAudio = null;
+      if(currentButton === button) currentButton = null;
+    }
+  </script>
+
+</body>
+</html>

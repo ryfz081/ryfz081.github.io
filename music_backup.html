@@ -3,37 +3,383 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ryan zhang's vault of music</title>
+  <title>music vault of ryan zhang</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .active-link { color: #22d3ee; font-weight: 600; }
+
+    /* Scroll down arrow animation */
+    .scroll-down {
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+    /* Hover scale animation for interactive elements */
+    .hover-scale {
+      transform: translateZ(0);
+      transition: transform 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+
+
+    /* Radiating hover + splash click */
+    .sfx-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .sfx-btn::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background: radial-gradient(circle, rgba(34,211,238,0.3) 20%, transparent 70%);
+      transform: scale(0);
+      transition: transform 0.4s ease;
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .sfx-btn:hover::before {
+      transform: scale(1);
+    }
+    .sfx-btn:active::before {
+      background: radial-gradient(circle, rgba(34,211,238,0.6) 10%, transparent 60%);
+      transform: scale(1.5);
+      transition: transform 0.2s ease;
+    }
+    .sfx-btn span {
+      position: relative;
+      z-index: 10;
+    }
+  </style>
+
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans">
+
+  <!-- Main Navbar -->
   <!-- Navbar -->
-  <nav class="fixed w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg">
-    <h1 class="text-xl font-bold text-cyan-400">YourName</h1>
+  <nav class="fixed w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg z-50">
+    <a href="index.html" class="text-xl font-bold text-cyan-400">
+      <h1>ryan zhang</h1>
+    </a>
+
     <ul class="flex space-x-6">
-      <li><a href="index.html" class="hover:text-cyan-400">About</a></li>
-      <li><a href="music.html" class="hover:text-cyan-400">Music</a></li>
-      <li><a href="coding.html" class="hover:text-cyan-400">Coding</a></li>
-      <li><a href="resume.html" class="hover:text-cyan-400">Resume</a></li>
+      <li><a href="index.html" class="text-xl">About</a></li>
+      <li><a href="music.html" class="text-xl">Music</a></li>
+      <li><a href="coding.html" class="text-xl">Coding</a></li>
+      <li><a href="resume.html" class="text-xl">Resume</a></li>
     </ul>
   </nav>
 
+  <style>
+    .active-link {
+      color: #22d3ee; /* cyan-400 */
+      font-weight: 600;
+    }
+  </style>
 
-  <!-- Music Portfolio -->
-  <section class="pt-32 px-6 md:px-20">
-    <h2 class="text-4xl font-bold mb-12 text-cyan-400">Audio / Music Works</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Lunar Gala 2025 -->
-      <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-        <h3 class="text-xl font-semibold mb-2">Lunar Gala 2025: Immensity</h3>
-        <audio controls class="w-full mb-4">
-          <source src="IMMENSITY_RYANZHANG_MASTER.wav" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-        <p class="text-gray-400">Short description about the piece.</p>
-      </div>
-      <!-- Add more music works -->
+  <script>
+    // Highlight active page in navbar
+    const links = document.querySelectorAll("nav ul li a");
+    const current = window.location.pathname.split("/").pop(); // e.g. music.html
+    links.forEach(link => {
+      if (
+        link.getAttribute("href") === current ||
+        (current === "" && link.getAttribute("href") === "index.html")
+      ) {
+        link.classList.add("active-link");
+      }
+    });
+  </script>
+
+
+  <!-- Secondary Section Navbar -->
+  <nav id="sectionNav" class="fixed top-16 w-full bg-gray-700 bg-opacity-80 px-6 py-2 flex justify-center space-x-8 z-40">
+    <a href="#immensity" class="hover:text-cyan-400">Lunar Gala</a>
+    <a href="#vgm" class="hover:text-cyan-400">Video Game Audio</a>
+    <a href="#personal" class="hover:text-cyan-400">Personal Works</a>
+    <a href="#jazz" class="hover:text-cyan-400">Improv Solos</a>
+  </nav>
+
+  <!-- Section 1: Immensity -->
+  <section id="immensity" class="min-h-screen flex flex-col justify-center px-6 md:px-20 pt-40">
+    <h2 class="text-4xl font-bold mb-8 text-cyan-400">Lunar Gala 2025: Immensity</h2>
+
+    <!-- YouTube Embed -->
+    <div class="aspect-w-16 aspect-h-9 mb-6 hover-scale overflow-hidden rounded-2xl shadow-lg">
+      <iframe class="w-full h-96"
+              src="https://www.youtube.com/embed/ydbaQ68yX7Y"
+              frameborder="0" allowfullscreen>
+      </iframe>
+    </div>
+
+
+    <!-- Audio Embed -->
+    <audio controls class="w-full mb-6">
+      <source src="lunargala25/IMMENSITY_RYANZHANG_MASTER.wav" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Credits & Description -->
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+      <h3 class="text-xl font-semibold mb-2">Credits</h3>
+      <p class="text-gray-300 mb-2">
+        Music composed by Ryan Zhang for Carnegie Mellon’s <em>Lunar Gala 2025</em>.
+      </p>
+      <p class="text-gray-400 text-sm">
+        Fashion Designers: Erika Egliskis, Sunny Guo<br>
+        Description: The designers were aiming for an East Asian ocean theme,
+        and I sought to give the viewer an underwater experience to match the
+        stunning aquatic-themed outfits. I used a combination of orchestral instrumentation and synths to set the scene.
+      </p>
+    </div>
+
+    <!-- Scroll Down Arrow -->
+    <div class="flex justify-center mt-10">
+      <a href="#vgm" class="scroll-down text-cyan-400 text-3xl">↓</a>
     </div>
   </section>
+
+  <!-- Section 2: Video Game Music + SFX -->
+  <section id="vgm" class="min-h-screen flex flex-col justify-center px-6 md:px-20 pt-40">
+    <h2 class="text-4xl font-bold mb-8 text-cyan-400">Video Game Music & SFX</h2>
+
+    <div class="flex justify-center mb-12">
+      <a href="sfx.html"
+         class="sfx-btn hover-scale w-32 h-32 flex items-center justify-center rounded-full bg-cyan-500 text-gray-900 font-bold shadow-lg transition">
+         <span class="text-xl">SFX Library</span>
+      </a>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+      <h3 class="text-xl font-semibold mb-2">Desert Exploration Theme (Tanbii)</h3>
+      <audio controls loop class="w-full">
+        <source src="videogamemusic/desert_exploration.wav" type="audio/mpeg">
+      </audio>
+      <p class="text-gray-400 text-sm mt-2">
+        A fun percussive desert theme when the player explores the desert areas.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+      <h3 class="text-xl font-semibold mb-2">Desolate Desert Village (Tanbii)</h3>
+      <audio controls loop class="w-full">
+        <source src="videogamemusic/desert_desolate.wav" type="audio/mpeg">
+      </audio>
+      <p class="text-gray-400 text-sm mt-2">
+        Ambient and eerie track to give the desolate village a sense of mystery. I used ethnic instrumentation to highlight the desert themes.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+      <h3 class="text-xl font-semibold mb-2">Desert Oasis Theme (Tanbii)</h3>
+      <audio controls loop class="w-full">
+        <source src="videogamemusic/desert_oasis.wav" type="audio/mpeg">
+      </audio>
+      <p class="text-gray-400 text-sm mt-2">
+        A calming track to let the player rest in the oasis. I was going for a spiritual feel.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+      <h3 class="text-xl font-semibold mb-2">Racing Game Menu Theme (Game Creation Society)</h3>
+      <audio controls loop class="w-full">
+        <source src="videogamemusic/menu.wav" type="audio/mpeg">
+      </audio>
+      <p class="text-gray-400 text-sm mt-2">
+        An energetic menu theme for a cartoony racing game.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+      <h3 class="text-xl font-semibold mb-2">Shooter Game Loading Screen (Game Creation Society)</h3>
+      <audio controls loop class="w-full">
+        <source src="videogamemusic/loadingscreenshooter.wav" type="audio/mpeg">
+      </audio>
+      <p class="text-gray-400 text-sm mt-2">
+        A hype UK grime-inspired loading screen theme for a fast paced shooter game.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+      <h3 class="text-xl font-semibold mb-2">Calm Theme (Game Creation Society)</h3>
+      <audio controls class="w-full">
+        <source src="videogamemusic/savannah.wav" type="audio/mpeg">
+      </audio>
+      <p class="text-gray-400 text-sm mt-2">
+        An unused calm theme I originally made for a contemplative cutscene.
+      </p>
+    </div>
+
+    <div class="flex justify-center mt-10">
+      <a href="#personal" class="scroll-down text-cyan-400 text-3xl">↓</a>
+    </div>
+  </section>
+  <!-- Section 3: Personal Productions & Compositions -->
+  <section id="personal" class="min-h-screen flex flex-col justify-center px-6 md:px-20 pt-40">
+    <h2 class="text-4xl font-bold mb-12 text-cyan-400 text-center">Personal Productions & Compositions</h2>
+
+    <div class="flex flex-col md:flex-row gap-12">
+      <!-- Left Column: Instagram Reel + YouTube Video + Descriptions -->
+      <div class="flex flex-col items-center md:w-1/2 space-y-6">
+
+        <!-- Row for Instagram Reel and YouTube Video -->
+        <div class="flex flex-col md:flex-row gap-8 w-full items-center justify-center">
+
+          <!-- Instagram Reel -->
+          <div class="overflow-hidden rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105 aspect-[9/16] w-full max-w-[350px]">
+            <iframe
+              src="https://www.instagram.com/reel/DG8nDM_PyH7/embed"
+              class="w-full h-full"
+              allowfullscreen
+              frameborder="0">
+            </iframe>
+          </div>
+
+          <!-- YouTube Landscape Video -->
+          <div class="overflow-hidden rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105 aspect-[16/9] w-full max-w-[700px]">
+            <iframe
+              src="https://www.youtube.com/embed/4YVK7DoqUfI"
+              class="w-full h-full"
+              allowfullscreen
+              frameborder="0">
+            </iframe>
+          </div>
+
+        </div>
+
+
+
+
+        <!-- Descriptions -->
+        <div class="flex flex-col space-y-2 text-gray-400 text-sm text-center md:text-left">
+          <p>
+            Left: I am creating a Frutiger Aero inspired preset pack for Omnisphere VST. This Instagram reel is a cool demo I made showcasing some of the presets.
+          </p>
+          <p>
+            Right: I wanted to capture the beauty of the aurora borealis and the wintry feeling of Northern Sweden. I introduce a "snow motif" in the beginning, showing the settling night, and then the rapid arpeggios come in, depicting the Northern lights that illuminate the sky.
+          </p>
+        </div>
+
+      </div>
+
+
+
+
+
+
+      <!-- Right Column: Audio Tracks -->
+      <div class="flex flex-col md:w-1/2 space-y-6">
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">Cyberlove</h3>
+          <audio controls class="w-full">
+            <source src="personal_projects/cyberlove.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            A synthwave pop beat that I plan to add some lyrics over.
+          </p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">Pong</h3>
+          <audio controls class="w-full">
+            <source src="personal_projects/pong.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            A complex track with a "ping pong" percussive motif that takes you on an adventure.
+          </p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">Ambition</h3>
+          <audio controls class="w-full">
+            <source src="personal_projects/ambition.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            An energetic trap beat with bells and synth leads.
+          </p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">Immerse</h3>
+          <audio controls class="w-full">
+            <source src="personal_projects/immerse.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            A trap electronic fusion beat inspired by Sam Gellaitry.
+          </p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">San Bushmen Beat</h3>
+          <audio controls class="w-full">
+            <source src="personal_projects/afrobeat.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            Sampled the chants of the San bushmen who live in the Kalahari desert to make this beat.
+          </p>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="flex justify-center mt-10">
+      <a href="#jazz" class="scroll-down text-cyan-400 text-3xl">↓</a>
+    </div>
+  </section>
+
+
+  <!-- Section 4: Jazz -->
+  <section id="jazz" class="min-h-screen flex flex-col justify-center items-center px-6 md:px-20 pt-40">
+    <h2 class="text-4xl font-bold mb-8 text-cyan-400">Improv Solos</h2>
+    <!-- Vertical Shorts Embed -->
+    <div class="flex flex-col md:flex-row md:justify-center md:items-start gap-8">
+      <div class="w-full max-w-sm aspect-[9/16] mb-8 hover-scale overflow-hidden rounded-2xl shadow-lg">
+        <iframe class="w-full h-full"
+                src="https://www.youtube.com/embed/ik8gDvygH88"
+                frameborder="0" allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="w-full max-w-sm aspect-[9/16] mb-8 hover-scale overflow-hidden rounded-2xl shadow-lg">
+        <iframe class="w-full h-full"
+                src="https://www.youtube.com/embed/CvqJLFOAzrM"
+                frameborder="0" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ScrollSpy Script -->
+  <script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("#sectionNav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active-link");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active-link");
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
