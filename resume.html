@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ryan Zhang – Resume</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+
+  <!-- Main Navbar -->
+  <nav class="fixed w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg z-50">
+    <h1 class="text-xl font-bold text-cyan-400">ryan zhang</h1>
+    <ul class="flex space-x-6">
+      <li><a href="index.html" class="hover:text-cyan-400">About</a></li>
+      <li><a href="music.html" class="hover:text-cyan-400">Music</a></li>
+      <li><a href="coding.html" class="hover:text-cyan-400">Coding</a></li>
+      <li><a href="resume.html" class="text-cyan-400 font-semibold">Resume</a></li>
+    </ul>
+  </nav>
+
+  <!-- Resume Section -->
+  <section class="min-h-screen flex flex-col justify-center items-center px-6 md:px-20 pt-40">
+    <h2 class="text-4xl font-bold mb-8 text-cyan-400">Resume</h2>
+
+    <!-- Option 1: Embed PDF directly -->
+    <div class="w-full max-w-4xl h-[80vh] mb-6">
+      <iframe src="resume.pdf" class="w-full h-full rounded-2xl shadow-lg bg-white"></iframe>
+    </div>
+
+    <!-- Option 2: Download Button -->
+    <a href="resume.pdf" target="_blank"
+       class="px-6 py-3 rounded-xl bg-cyan-500 text-gray-900 font-semibold shadow-lg hover:bg-cyan-400 transition">
+      Download PDF
+    </a>
+  </section>
+
+</body>
+</html>
