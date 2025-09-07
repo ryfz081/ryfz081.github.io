@@ -6,8 +6,10 @@
   <title>welcome to ryan zhang's vault</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    html { scroll-behavior: smooth; }
+
     .active-link {
-      color: #22d3ee; /* cyan-400 */
+      color: #22d3ee;
       font-weight: 600;
     }
 
@@ -15,55 +17,43 @@
     .typewriter {
       overflow: hidden;
       white-space: nowrap;
-      border-right: .15em solid #22d3ee; /* cursor */
-      animation:
-        typing 2.5s steps(30, end),
-        blink-caret .75s step-end infinite;
+      border-right: .15em solid #22d3ee;
+      animation: typing 0.5s steps(15, end), blink-caret .75s step-end infinite;
       display: inline-block;
-      padding-bottom: 0.2em; /* 👈 gives room for descenders */
+      padding-bottom: 0.2em;
     }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: #22d3ee }
-    }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #22d3ee } }
 
     /* Fade + slide-up animation for description */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 1.5s ease forwards;
-      animation-delay: 2.6s; /* starts after typewriter finishes */
+      animation-delay: 0.55s;
     }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+    /* Arrow bounce animation */
+    .animate-bounce { animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
   </style>
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans">
 
-  <!-- Navbar -->
-  <nav class="fixed w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg">
-    <a href="index.html" class="text-xl font-bold text-cyan-400">
-      <h1>ryan zhang</h1>
-    </a>
+  <!-- Fixed Navbar -->
+  <nav class="fixed top-0 left-0 w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg z-50">
+    <a href="index.html" class="text-xl font-bold text-cyan-400">ryan zhang</a>
     <ul class="flex space-x-6">
-      <li><a href="index.html">About</a></li>
-      <li><a href="music.html">Music</a></li>
-      <li><a href="coding.html">Coding</a></li>
-      <li><a href="resume.html">Resume</a></li>
+      <li><a href="index.html" class="text-xl">About</a></li>
+      <li><a href="music.html" class="text-xl">Music</a></li>
+      <li><a href="coding.html" class="text-xl">Coding</a></li>
+      <li><a href="resume.html" class="text-xl">Resume</a></li>
     </ul>
   </nav>
 
-  <!-- Content -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+  <!-- Hero Section -->
+  <section id="top" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24">
     <h2 class="text-5xl font-extrabold mb-6">
       <span class="typewriter">I'm <span class="text-cyan-400">Ryan Zhang</span>.</span>
     </h2>
@@ -71,18 +61,82 @@
       I'm interested in the intersection of <strong>music and technology</strong>.
       Welcome to my website where you can uncover my portfolio, projects, and more...
     </p>
+    <br>
+    <p class="text-lg text-gray-400 max-w-2xl fade-in">
+      Scroll down to learn more about me!
+    </p>
+
+
+    <!-- Scroll down arrow -->
+    <div class="mt-12 animate-bounce">
+      <a href="#about-deeper" class="text-cyan-400 text-4xl">↓</a>
+    </div>
   </section>
 
-  <!-- Active tab highlighter -->
+  <!-- Deeper About Me Section -->
+  <section id="about-deeper" class="min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-20 bg-gray-800 opacity-0 transform translate-y-8 transition-all duration-1000 pt-24">
+    <h2 class="text-4xl font-bold text-cyan-400 mb-6">About Me</h2>
+    <p class="text-gray-300 max-w-3xl mb-4 text-lg">
+      I am a <b>musician, audio engineer, video game sound designer, and programmer</b> exploring how technology can expand creative expression.
+      I work on a variety of music, video game audio, and interactive digital projects.
+    </p>
+    <p class="text-gray-300 max-w-3xl mb-8 text-lg">
+      I am currently a student at <b>Carnegie Mellon University</b> studying a <b>Bachelors of Computer Science and Audio Engineering/Music Tech</b>.
+      I am an experienced problem-solver and coder having taken numerous courses in the realm such as <b>discrete math</b> and <b>functional programming</b>. I also
+      have experience developing for <b>open source libraries</b>, hackathons, and more in languages such as <b>Python, Javascript, C, etc.</b>. I have also taken a variety of music courses at Carnegie Mellon, including
+      courses on <b>counterpoint</b> and <b>audio engineering</b>.
+    </p>
+    <p class="text-gray-300 max-w-3xl mb-8 text-lg">
+      I have produced the walkout music for the <b>largest annual fashion show in Pittsburgh</b>, the <b>Lunar Gala</b>, and I have experience
+      producing music and SFX for video games and implementing audio with <b>FMOD and Unreal Engine</b> as a member of the <b>Game Creation Society</b> and
+      as an <b>intern at Tanbii</b>, a sustainability mobile game startup.
+    </p>
+    <p class="text-gray-300 max-w-3xl mb-8 text-lg">
+      I also work as an <b>audio/visual engineer</b> crew member for the Carnegie Mellon recording services, ensuring high quality live audio and visual recordings
+      of Carnegie Mellon School of Music recitals, concerts, and opera performances. In my free time, I enjoy <b>biking</b> around the city, <b>cooking</b> new recipes,
+      doing <b>improvised solos</b>, and best of all, listening to <b>music</b>.
+    </p>
+    <br>
+    <p class="text-gray-300 max-w-3xl mb-8 text-xl">
+      <strong>Check out my music portfolio, digital projects, and resume on this website!</strong>
+    </p>
+
+    <!-- Scroll up arrow -->
+    <div class="mt-6 animate-bounce">
+      <a href="#top" class="text-cyan-400 text-4xl">↑</a>
+    </div>
+  </section>
+
+  <!-- Scripts -->
   <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Fade in deeper section when it enters viewport
+    const deeperSection = document.getElementById('about-deeper');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          deeperSection.classList.remove('opacity-0', 'translate-y-8');
+          deeperSection.classList.add('opacity-100', 'translate-y-0');
+        }
+      });
+    }, { threshold: 0.1 });
+    observer.observe(deeperSection);
+
+    // Highlight active nav link
     const links = document.querySelectorAll("nav ul li a");
-    const current = window.location.pathname.split("/").pop(); // filename of current page
+    const current = window.location.pathname.split("/").pop();
     links.forEach(link => {
       if (link.getAttribute("href") === current || (current === "" && link.getAttribute("href") === "index.html")) {
         link.classList.add("active-link");
       }
     });
   </script>
-
 </body>
 </html>

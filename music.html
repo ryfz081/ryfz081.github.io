@@ -17,6 +17,15 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(8px); }
     }
+    /* Hover scale animation for interactive elements */
+    .hover-scale {
+      transform: translateZ(0);
+      transition: transform 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+
 
     /* Radiating hover + splash click */
     .sfx-btn {
@@ -59,11 +68,12 @@
     <a href="index.html" class="text-xl font-bold text-cyan-400">
       <h1>ryan zhang</h1>
     </a>
+
     <ul class="flex space-x-6">
-      <li><a href="index.html">About</a></li>
-      <li><a href="music.html">Music</a></li>
-      <li><a href="coding.html">Coding</a></li>
-      <li><a href="resume.html">Resume</a></li>
+      <li><a href="index.html" class="text-xl">About</a></li>
+      <li><a href="music.html" class="text-xl">Music</a></li>
+      <li><a href="coding.html" class="text-xl">Coding</a></li>
+      <li><a href="resume.html" class="text-xl">Resume</a></li>
     </ul>
   </nav>
 
@@ -102,11 +112,13 @@
     <h2 class="text-4xl font-bold mb-8 text-cyan-400">Lunar Gala 2025: Immensity</h2>
 
     <!-- YouTube Embed -->
-    <div class="aspect-w-16 aspect-h-9 mb-6">
-      <iframe class="w-full h-96 rounded-2xl shadow-lg"
+    <div class="aspect-w-16 aspect-h-9 mb-6 hover-scale overflow-hidden rounded-2xl shadow-lg">
+      <iframe class="w-full h-96"
               src="https://www.youtube.com/embed/ydbaQ68yX7Y"
-              frameborder="0" allowfullscreen></iframe>
+              frameborder="0" allowfullscreen>
+      </iframe>
     </div>
+
 
     <!-- Audio Embed -->
     <audio controls class="w-full mb-6">
@@ -140,37 +152,69 @@
 
     <div class="flex justify-center mb-12">
       <a href="sfx.html"
-        class="sfx-btn w-32 h-32 flex items-center justify-center rounded-full bg-cyan-500 text-gray-900 font-bold shadow-lg transition">
-        <span class="text-xl">SFX Library</span>
+         class="sfx-btn hover-scale w-32 h-32 flex items-center justify-center rounded-full bg-cyan-500 text-gray-900 font-bold shadow-lg transition">
+         <span class="text-xl">SFX Library</span>
       </a>
     </div>
 
     <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
       <h3 class="text-xl font-semibold mb-2">Desert Exploration Theme (Tanbii)</h3>
       <audio controls loop class="w-full">
-        <source src="desert_exploration.wav" type="audio/mpeg">
+        <source src="videogamemusic/desert_exploration.wav" type="audio/mpeg">
       </audio>
+      <p class="text-gray-400 text-sm mt-2">
+        A fun percussive desert theme when the player explores the desert areas.
+      </p>
     </div>
 
     <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
       <h3 class="text-xl font-semibold mb-2">Desolate Desert Village (Tanbii)</h3>
       <audio controls loop class="w-full">
-        <source src="desert_desolate.wav" type="audio/mpeg">
+        <source src="videogamemusic/desert_desolate.wav" type="audio/mpeg">
       </audio>
+      <p class="text-gray-400 text-sm mt-2">
+        Ambient and eerie track to give the desolate village a sense of mystery. I used ethnic instrumentation to highlight the desert themes.
+      </p>
     </div>
 
     <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
       <h3 class="text-xl font-semibold mb-2">Desert Oasis Theme (Tanbii)</h3>
       <audio controls loop class="w-full">
-        <source src="desert_oasis.wav" type="audio/mpeg">
+        <source src="videogamemusic/desert_oasis.wav" type="audio/mpeg">
       </audio>
+      <p class="text-gray-400 text-sm mt-2">
+        A calming track to let the player rest in the oasis. I was going for a spiritual feel.
+      </p>
     </div>
 
     <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
       <h3 class="text-xl font-semibold mb-2">Racing Game Menu Theme (Game Creation Society)</h3>
       <audio controls loop class="w-full">
-        <source src="menu.wav" type="audio/mpeg">
+        <source src="videogamemusic/menu.wav" type="audio/mpeg">
       </audio>
+      <p class="text-gray-400 text-sm mt-2">
+        An energetic menu theme for a cartoony racing game.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+      <h3 class="text-xl font-semibold mb-2">Shooter Game Loading Screen (Game Creation Society)</h3>
+      <audio controls loop class="w-full">
+        <source src="videogamemusic/loadingscreenshooter.wav" type="audio/mpeg">
+      </audio>
+      <p class="text-gray-400 text-sm mt-2">
+        A hype UK grime-inspired loading screen theme for a fast paced shooter game.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
+      <h3 class="text-xl font-semibold mb-2">Calm Theme (Game Creation Society)</h3>
+      <audio controls class="w-full">
+        <source src="videogamemusic/savannah.wav" type="audio/mpeg">
+      </audio>
+      <p class="text-gray-400 text-sm mt-2">
+        An unused calm theme I originally made for a contemplative cutscene.
+      </p>
     </div>
 
     <div class="flex justify-center mt-10">
@@ -179,27 +223,111 @@
   </section>
   <!-- Section 3: Personal Productions & Compositions -->
   <section id="personal" class="min-h-screen flex flex-col justify-center px-6 md:px-20 pt-40">
-    <h2 class="text-4xl font-bold mb-8 text-cyan-400">Personal Productions & Compositions</h2>
+    <h2 class="text-4xl font-bold mb-12 text-cyan-400 text-center">Personal Productions & Compositions</h2>
 
-    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
-      <h3 class="text-xl font-semibold mb-2">Ambient Synth Experiment</h3>
-      <audio controls loop class="w-full">
-        <source src="ambient_synth.wav" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="flex flex-col md:flex-row gap-12">
+      <!-- Left Column: Instagram Reel + YouTube Video + Descriptions -->
+      <div class="flex flex-col items-center md:w-1/2 space-y-6">
 
-    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
-      <h3 class="text-xl font-semibold mb-2">String Quartet Piece</h3>
-      <audio controls class="w-full">
-        <source src="string_quartet.wav" type="audio/mpeg">
-      </audio>
-    </div>
+        <!-- Row for Instagram Reel and YouTube Video -->
+        <div class="flex flex-col md:flex-row gap-8 w-full items-center justify-center">
 
-    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
-      <h3 class="text-xl font-semibold mb-2">Electronic Beat Production</h3>
-      <audio controls loop class="w-full">
-        <source src="electronic_beat.wav" type="audio/mpeg">
-      </audio>
+          <!-- Instagram Reel -->
+          <div class="overflow-hidden rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105 aspect-[9/16] w-full max-w-[350px]">
+            <iframe
+              src="https://www.instagram.com/reel/DG8nDM_PyH7/embed"
+              class="w-full h-full"
+              allowfullscreen
+              frameborder="0">
+            </iframe>
+          </div>
+
+          <!-- YouTube Landscape Video -->
+          <div class="overflow-hidden rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105 aspect-[16/9] w-full max-w-[700px]">
+            <iframe
+              src="https://www.youtube.com/embed/4YVK7DoqUfI"
+              class="w-full h-full"
+              allowfullscreen
+              frameborder="0">
+            </iframe>
+          </div>
+
+        </div>
+
+
+
+
+        <!-- Descriptions -->
+        <div class="flex flex-col space-y-2 text-gray-400 text-sm text-center md:text-left">
+          <p>
+            Left: I am creating a Frutiger Aero inspired preset pack for Omnisphere VST. This Instagram reel is a cool demo I made showcasing some of the presets.
+          </p>
+          <p>
+            Right: I wanted to capture the beauty of the aurora borealis and the wintry feeling of Northern Sweden. I introduce a "snow motif" in the beginning, showing the settling night, and then the rapid arpeggios come in, depicting the Northern lights that illuminate the sky.
+          </p>
+        </div>
+
+      </div>
+
+
+
+
+
+
+      <!-- Right Column: Audio Tracks -->
+      <div class="flex flex-col md:w-1/2 space-y-6">
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">Cyberlove</h3>
+          <audio controls class="w-full">
+            <source src="personal_projects/cyberlove.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            A synthwave pop beat that I plan to add some lyrics over.
+          </p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">Pong</h3>
+          <audio controls class="w-full">
+            <source src="personal_projects/pong.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            A complex track with a "ping pong" percussive motif that takes you on an adventure.
+          </p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">Ambition</h3>
+          <audio controls class="w-full">
+            <source src="personal_projects/ambition.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            An energetic trap beat with bells and synth leads.
+          </p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">Immerse</h3>
+          <audio controls class="w-full">
+            <source src="personal_projects/immerse.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            A trap electronic fusion beat inspired by Sam Gellaitry.
+          </p>
+        </div>
+
+        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">San Bushmen Beat</h3>
+          <audio controls class="w-full">
+            <source src="personal_projects/afrobeat.wav" type="audio/mpeg">
+          </audio>
+          <p class="text-gray-400 text-sm mt-2">
+            Sampled the chants of the San bushmen who live in the Kalahari desert to make this beat.
+          </p>
+        </div>
+
+
+      </div>
     </div>
 
     <div class="flex justify-center mt-10">
@@ -207,21 +335,24 @@
     </div>
   </section>
 
+
   <!-- Section 4: Jazz -->
   <section id="jazz" class="min-h-screen flex flex-col justify-center items-center px-6 md:px-20 pt-40">
     <h2 class="text-4xl font-bold mb-8 text-cyan-400">Improv Solos</h2>
     <!-- Vertical Shorts Embed -->
     <div class="flex flex-col md:flex-row md:justify-center md:items-start gap-8">
-      <div class="w-full max-w-sm aspect-[9/16] mb-8">
-        <iframe class="w-full h-full rounded-2xl shadow-lg"
+      <div class="w-full max-w-sm aspect-[9/16] mb-8 hover-scale overflow-hidden rounded-2xl shadow-lg">
+        <iframe class="w-full h-full"
                 src="https://www.youtube.com/embed/ik8gDvygH88"
-                frameborder="0" allowfullscreen></iframe>
+                frameborder="0" allowfullscreen>
+        </iframe>
       </div>
 
-      <div class="w-full max-w-sm aspect-[9/16] mb-8">
-        <iframe class="w-full h-full rounded-2xl shadow-lg"
+      <div class="w-full max-w-sm aspect-[9/16] mb-8 hover-scale overflow-hidden rounded-2xl shadow-lg">
+        <iframe class="w-full h-full"
                 src="https://www.youtube.com/embed/CvqJLFOAzrM"
-                frameborder="0" allowfullscreen></iframe>
+                frameborder="0" allowfullscreen>
+        </iframe>
       </div>
     </div>
   </section>
