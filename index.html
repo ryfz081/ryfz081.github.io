@@ -3,142 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>welcome to ryan zhang's vault</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html { scroll-behavior: smooth; }
-
-    .active-link {
-      color: #22d3ee;
-      font-weight: 600;
-    }
-
-    /* Typewriter animation */
-    .typewriter {
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: .15em solid #22d3ee;
-      animation: typing 0.5s steps(15, end), blink-caret .75s step-end infinite;
-      display: inline-block;
-      padding-bottom: 0.2em;
-    }
-    @keyframes typing { from { width: 0 } to { width: 100% } }
-    @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #22d3ee } }
-
-    /* Fade + slide-up animation for description */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1.5s ease forwards;
-      animation-delay: 0.55s;
-    }
-    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-
-    /* Arrow bounce animation */
-    .animate-bounce { animation: bounce 2s infinite; }
-    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
-  </style>
+  <title>Ryan Zhang</title>
+  <meta name="description" content="ryan zhang — undergraduate researcher at Carnegie Mellon working at the intersection of computer science, music, and audio.">
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js"></script>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans">
-
-  <!-- Fixed Navbar -->
-  <nav class="fixed top-0 left-0 w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg z-50">
-    <a href="index.html" class="text-xl font-bold text-cyan-400">ryan zhang</a>
-    <ul class="flex space-x-6">
-      <li><a href="index.html" class="text-xl">About</a></li>
-      <li><a href="music.html" class="text-xl">Music</a></li>
-      <li><a href="coding.html" class="text-xl">Coding</a></li>
-      <li><a href="resume.html" class="text-xl">Resume</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="top" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24">
-    <h2 class="text-5xl font-extrabold mb-6">
-      <span class="typewriter">I'm <span class="text-cyan-400">Ryan Zhang</span>.</span>
-    </h2>
-    <p class="text-lg text-gray-400 max-w-2xl fade-in">
-      I'm interested in the intersection of <strong>music and technology</strong>.
-      Welcome to my website where you can uncover my portfolio, projects, and more...
-    </p>
-    <br>
-    <p class="text-lg text-gray-400 max-w-2xl fade-in">
-      Scroll down to learn more about me!
-    </p>
-
-
-    <!-- Scroll down arrow -->
-    <div class="mt-12 animate-bounce">
-      <a href="#about-deeper" class="text-cyan-400 text-4xl">↓</a>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-name" href="index.html">ryan zhang</a>
+      <nav class="site-nav">
+        <a href="index.html" aria-current="page">about</a>
+        <a href="research.html">research</a>
+        <a href="projects.html">projects</a>
+        <a href="writing.html">writing</a>
+        <a href="music.html">music</a>
+        <a href="cv.html">cv</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- Deeper About Me Section -->
-  <section id="about-deeper" class="min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-20 bg-gray-800 opacity-0 transform translate-y-8 transition-all duration-1000 pt-24">
-    <h2 class="text-4xl font-bold text-cyan-400 mb-6">About Me</h2>
-    <p class="text-gray-300 max-w-3xl mb-4 text-lg">
-      I am a <b>musician, audio engineer, video game sound designer, and programmer</b> exploring how technology can expand creative expression, specifically in the musical/audio realm.
-    </p>
-    <p class="text-gray-300 max-w-3xl mb-8 text-lg">
-      I am currently a student at <b>Carnegie Mellon University</b> studying a
-      <br>
-       <b>Bachelors of Computer Science and Audio Engineering/Music Tech</b>.
-    </p>
-    <p class="text-gray-300 max-w-3xl mb-8 text-lg">
-      I am obtaining an interdisciplinary education, taking courses such as <b>discrete math</b>, <b>functional programming</b>, <b>counterpoint/music theory</b>, <b>electrical engineering</b>, and <b>multitrack recording</b>.
-    </p>
-    <p class="text-gray-300 max-w-3xl mb-8 text-lg">
-      I have experience developing for <b>open source libraries</b>, hackathons, and more in languages such as <b>Python, Javascript, C, etc.</b>.
-    </p>
-    <p class="text-gray-300 max-w-3xl mb-8 text-lg">
-      I am familiar with various DAWs such as <b>FL Studio</b>, <b>Pro Tools</b>, and <b>Reaper</b>, as well as implementing audio with <b>FMOD</b>. I've done sound design for the <b>Lunar Gala</b> fashion show, and implemented game audio as a member of the <b>Game Creation Society</b> and
-      as an <b>intern at Tanbii</b>, a mobile game company.
-    </p>
-    <p class="text-gray-300 max-w-3xl mb-8 text-lg">
-      In my free time, I enjoy <b>biking</b> around the city, <b>cooking</b> new recipes,
-      doing <b>improvised solos</b>, and best of all, listening to <b>music</b>.
-    </p>
-    <br>
-    <p class="text-gray-300 max-w-3xl mb-8 text-xl">
-      <strong>Check out my music portfolio, digital projects, and resume on this website!</strong>
-    </p>
+  <main>
+    <div class="wrap home">
+      <aside class="home-side">
+        <figure class="portrait">
+          <img src="media/images/lg26headshot_cropped.jpg" alt="Ryan Zhang" width="640" height="800"
+               onerror="this.onerror=null; this.src='media/images/portrait-placeholder.svg'">
+        </figure>
 
-    <!-- Scroll up arrow -->
-    <div class="mt-6 animate-bounce">
-      <a href="#top" class="text-cyan-400 text-4xl">↑</a>
+        <!-- Icons: Font Awesome Free 6.5.2 (CC BY 4.0), https://fontawesome.com -->
+        <ul class="contact" aria-label="Contact and profiles">
+          <li><button type="button" class="contact-icon copy-email" data-email="ryanz2@andrew.cmu.edu" aria-label="Copy email address" data-tip="Email"><svg class="icon" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg><span class="bubble" role="status" aria-live="polite"></span></button></li>
+          <li><a class="contact-icon" href="https://scholar.google.com/citations?user=6PYYLVQAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar" data-tip="Google Scholar"><svg class="icon" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M390.9 298.5c0 0 0 .1 .1 .1c9.2 19.4 14.4 41.1 14.4 64C405.3 445.1 338.5 512 256 512s-149.3-66.9-149.3-149.3c0-22.9 5.2-44.6 14.4-64h0c1.7-3.6 3.6-7.2 5.6-10.7c4.4-7.6 9.4-14.7 15-21.3c27.4-32.6 68.5-53.3 114.4-53.3c33.6 0 64.6 11.1 89.6 29.9c9.1 6.9 17.4 14.7 24.8 23.5c5.6 6.6 10.6 13.8 15 21.3c2 3.4 3.8 7 5.5 10.5zm26.4-18.8c-30.1-58.4-91-98.4-161.3-98.4s-131.2 40-161.3 98.4L0 202.7 256 0 512 202.7l-94.7 77.1z"/></svg></a></li>
+          <li><a class="contact-icon" href="https://www.linkedin.com/in/ryzhangs" target="_blank" rel="noopener" aria-label="LinkedIn" data-tip="LinkedIn"><svg class="icon" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a></li>
+          <li><a class="contact-icon" href="https://github.com/ryfz081" target="_blank" rel="noopener" aria-label="GitHub" data-tip="GitHub"><svg class="icon" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></a></li>
+          <li><a class="contact-icon" href="cv.html" aria-label="CV" data-tip="CV"><svg class="icon" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16H224v80c0 17.7 14.3 32 32 32h80V448c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0H64zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24H264c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24H264c13.3 0 24-10.7 24-24s-10.7-24-24-24H120z"/></svg></a></li>
+        </ul>
+
+        <!-- News: newest first. Copy an <li> to add an item. -->
+        <section class="home-news">
+          <p class="eyebrow">News</p>
+          <ul class="news">
+            <li><time>Nov 2026</time><span>Ventriloquist Effect study abstract/poster presented at APCAM 2026.</span></li>
+            <li><time>Oct 2026</time><span>Awarded a CMU Small Undergraduate Research Grant (SURG) to fund continued experimentation on my ventriloquist effect research with the Auditory Lab.</span></li>
+            <li><time>Oct 2026</time><span>Started working on audiovisual widgets in extended reality with PhD student Hyunsung Cho in the Augmented Perception Lab.</span></li>
+            <li><time>May 2026</time><span>Started project supervised by Prof. Laurie Heller's Auditory Lab as a CMU Summer Undergraduate Research Fellow (SURF).</span></li>
+            <li><time>Dec 2025</time><span>Joined Prof. David Lindlbauer's Augmented Perception Lab at the CMU HCII, working on a personal soundtrack project with PhD student Alexander Wang.</span></li>
+            <li><time>Feb 2025</time><span>Competed at TartanHacks with Andy Kwak, Elwin Li, and Jana Sarhan. Our project Hand Music won 3rd place overall.</span></li>
+          </ul>
+        </section>
+      </aside>
+
+      <div class="home-main">
+        <section class="home-intro">
+          <h1 class="display">Ryan Zhang</h1>
+          <p class="lede">
+          I'm an undergraduate in the Bachelor of Computer Science and Arts program at Carnegie Mellon,
+          concentrating in music technology. My goal is to utilize computing technology to enhance and
+          better understand the sonic experience.
+        </p>
+        </section>
+
+      <section class="section section-grid">
+        <p class="eyebrow">Research</p>
+        <div>
+          <p>
+            My interests lie in <strong>computer science, music, and audio</strong>. This encompasses human-computer interaction,
+            auditory perception, novel musical interfaces, music theory, and theoretical computer science.
+          </p>
+          <p>
+            My current work spans perceptual experiments for audio in mixed reality, new forms of musical interaction,
+            and complexity-theoretic approaches to the relationship between music and computation.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section-grid">
+        <p class="eyebrow">Currently</p>
+        <ul class="plain-list">
+          <li><span class="k">Augmented Perception Lab</span><span class="v">Carnegie Mellon HCII · 2025–</span></li>
+          <li><span class="k">Auditory Lab</span><span class="v">Carnegie Mellon Psychology · 2026–</span></li>
+          <li><span class="k">Audiovisual Engineer</span><span class="v">Carnegie Mellon School of Music · 2025–</span></li>
+        </ul>
+      </section>
+
+      <section class="section section-grid">
+        <p class="eyebrow">Activities</p>
+        <div>
+          <p>
+            Outside of research I produce, compose and design sounds. I have created works for CMU's Lunar Gala,
+            the Game Creation Society, and other indie games. I also enjoy biking and hiking.
+          </p>
+          <div class="link-row">
+            <a href="research.html">Research</a>
+            <a href="writing.html">Writing</a>
+            <a href="music.html">Music</a>
+          </div>
+        </div>
+      </section>
+      </div>
     </div>
-  </section>
+  </main>
 
-  <!-- Scripts -->
+  <footer class="site-footer">
+    <div class="wrap"><p>© 2026 Ryan Zhang · Pittsburgh</p></div>
+  </footer>
   <script>
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // Fade in deeper section when it enters viewport
-    const deeperSection = document.getElementById('about-deeper');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          deeperSection.classList.remove('opacity-0', 'translate-y-8');
-          deeperSection.classList.add('opacity-100', 'translate-y-0');
-        }
-      });
-    }, { threshold: 0.1 });
-    observer.observe(deeperSection);
-
-    // Highlight active nav link
-    const links = document.querySelectorAll("nav ul li a");
-    const current = window.location.pathname.split("/").pop();
-    links.forEach(link => {
-      if (link.getAttribute("href") === current || (current === "" && link.getAttribute("href") === "index.html")) {
-        link.classList.add("active-link");
-      }
-    });
+    document.querySelectorAll('.copy-email').forEach(btn => btn.addEventListener('click', async () => {
+      const email = btn.dataset.email, bubble = btn.querySelector('.bubble');
+      try { await navigator.clipboard.writeText(email); }
+      catch (e) { location.href = 'mailto:' + email; return; }
+      bubble.textContent = 'Copied ' + email;
+      btn.classList.add('copied'); clearTimeout(btn._t);
+      btn._t = setTimeout(() => btn.classList.remove('copied'), 2200);
+    }));
   </script>
 </body>
 </html>

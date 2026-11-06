@@ -3,423 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>music vault of ryan zhang</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html { scroll-behavior: smooth; }
-    .active-link { color: #22d3ee; font-weight: 600; }
-
-    /* Scroll down arrow animation */
-    .scroll-down {
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
-    }
-
-    /* Hover scale animation for interactive elements */
-    .hover-scale {
-      transform: translateZ(0);
-      transition: transform 0.3s ease;
-    }
-    .hover-scale:hover {
-      transform: scale(1.05);
-    }
-
-    /* Big wide SFX Library button with neon glow */
-    .sfx-btn {
-      width: 50vw;                       /* half of viewport width */
-      max-width: 600px;                   /* optional cap for very large screens */
-      height: 6rem;                       /* tall enough to be noticeable */
-      font-size: 3rem;                     /* much larger text */
-      background: linear-gradient(135deg, #06b6d4, #22d3ee);
-      color: #111827;
-      font-weight: bold;
-      border-radius: 1.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      text-align: center;
-      text-decoration: none;
-      box-shadow: 0 0 20px rgba(34, 211, 238, 0.7), 0 6px 25px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      overflow: hidden;
-      animation: pulse 2s infinite;
-    }
-
-    /* Hover effect: scale + extra glow */
-    .sfx-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 50px rgba(34, 211, 238, 0.9), 0 8px 30px rgba(0,0,0,0.6);
-    }
-
-    /* Pulsing animation */
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.20); }
-    }
-
-    /* Neon border animation */
-    .sfx-btn::after {
-      content: '';
-      position: absolute;
-      top: -3px; left: -3px; right: -3px; bottom: -3px;
-      border-radius: 1.5rem;
-      background: linear-gradient(90deg, #06b6d4, #22d3ee, #06b6d4, #22d3ee);
-      background-size: 300% 300%;
-      z-index: -1;
-      filter: blur(8px);
-      animation: neon 3s linear infinite;
-    }
-
-    @keyframes neon {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .sfx-btn span {
-      position: relative;
-      z-index: 10;
-    }
-  </style>
-
-
-
-
-
+  <title>Music — Ryan Zhang</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js"></script>
+  <link rel="stylesheet" href="music.css">
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans">
-
-  <!-- Main Navbar -->
-  <!-- Navbar -->
-  <nav class="fixed w-full bg-gray-800 bg-opacity-90 backdrop-blur-md px-6 py-4 flex justify-between items-center shadow-lg z-50">
-    <a href="index.html" class="text-xl font-bold text-cyan-400">
-      <h1>ryan zhang</h1>
-    </a>
-
-    <ul class="flex space-x-6">
-      <li><a href="index.html" class="text-xl">About</a></li>
-      <li><a href="music.html" class="text-xl">Music</a></li>
-      <li><a href="coding.html" class="text-xl">Coding</a></li>
-      <li><a href="resume.html" class="text-xl">Resume</a></li>
-    </ul>
-  </nav>
-
-  <style>
-    .active-link {
-      color: #22d3ee; /* cyan-400 */
-      font-weight: 600;
-    }
-  </style>
-
-  <script>
-    // Highlight active page in navbar
-    const links = document.querySelectorAll("nav ul li a");
-    const current = window.location.pathname.split("/").pop(); // e.g. music.html
-    links.forEach(link => {
-      if (
-        link.getAttribute("href") === current ||
-        (current === "" && link.getAttribute("href") === "index.html")
-      ) {
-        link.classList.add("active-link");
-      }
-    });
-  </script>
-
-
-  <!-- Secondary Section Navbar -->
-  <nav id="sectionNav" class="fixed top-16 w-full bg-gray-700 bg-opacity-80 px-6 py-2 flex justify-center space-x-8 z-40">
-    <a href="#immensity" class="hover:text-cyan-400">Lunar Gala</a>
-    <a href="#vgm" class="hover:text-cyan-400">Video Game Audio</a>
-    <a href="#personal" class="hover:text-cyan-400">Personal Works</a>
-    <a href="#jazz" class="hover:text-cyan-400">Improv Solos</a>
-  </nav>
-
-  <!-- Section 1: Immensity -->
-  <section id="immensity" class="min-h-screen flex flex-col justify-center px-6 md:px-20 pt-40">
-    <h2 class="text-4xl font-bold mb-8 text-cyan-400">Lunar Gala 2025: Immensity</h2>
-
-    <!-- YouTube Embed -->
-    <div class="aspect-w-16 aspect-h-9 mb-6 hover-scale overflow-hidden rounded-2xl shadow-lg">
-      <iframe class="w-full h-96"
-              src="https://www.youtube.com/embed/ydbaQ68yX7Y"
-              frameborder="0" allowfullscreen>
-      </iframe>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-name" href="index.html">ryan zhang</a>
+      <nav class="site-nav">
+        <a href="index.html">about</a>
+        <a href="research.html">research</a>
+        <a href="projects.html">projects</a>
+        <a href="writing.html">writing</a>
+        <a href="music.html" aria-current="page">music</a>
+        <a href="cv.html">cv</a>
+      </nav>
     </div>
+  </header>
 
+  <main class="music-main">
+    <div class="wrap">
+      <div class="music-head">
+        <div>
+          <h1 class="page-title">Music &amp; Sound</h1>
+          <p class="page-intro">Composition, sound design, and game audio.</p>
+        </div>
+        <label class="bg-play" title="Keep the music going while you browse the rest of the site">
+          <span class="bg-play-text">Play in background</span>
+          <input type="checkbox" id="bg-play" role="switch">
+          <span class="bg-play-track" aria-hidden="true"><span class="bg-play-knob"></span></span>
+        </label>
+      </div>
 
-    <!-- Audio Embed -->
-    <audio controls class="w-full mb-6">
-      <source src="lunargala25/IMMENSITY_RYANZHANG_MASTER.wav" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-
-    <!-- Credits & Description -->
-    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-      <h3 class="text-xl font-semibold mb-2">Credits</h3>
-      <p class="text-gray-300 mb-2">
-        Music composed by Ryan Zhang for Carnegie Mellon’s <em>Lunar Gala 2025</em>.
-      </p>
-      <p class="text-gray-400 text-sm">
-        Fashion Designers: Erika Egliskis, Sunny Guo<br>
-        Description: The designers were aiming for an East Asian ocean theme,
-        and I sought to give the viewer an underwater experience to match the
-        stunning aquatic-themed outfits. I used a combination of orchestral instrumentation and synths to set the scene.
-      </p>
     </div>
-
-    <!-- Scroll Down Arrow -->
-    <div class="flex justify-center mt-10">
-      <a href="#vgm" class="scroll-down text-cyan-400 text-3xl">↓</a>
-    </div>
-  </section>
-
-  <!-- Section 2: Video Game Music + SFX -->
-  <section id="vgm" class="min-h-screen flex flex-col justify-center px-6 md:px-20 pt-40">
-    <h2 class="text-4xl font-bold mb-8 text-cyan-400">Video Game Music & SFX</h2>
-
-    <div class="flex justify-center mb-12">
-      <a href="sfx.html"
-         class="sfx-btn hover-scale">
-         <span>SFX Library</span>
-      </a>
-    </div>
-
-    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
-      <h3 class="text-xl font-semibold mb-2">Desert Exploration Theme (Tanbii)</h3>
-      <audio controls loop class="w-full">
-        <source src="videogamemusic/desert_exploration.wav" type="audio/mpeg">
-      </audio>
-      <p class="text-gray-400 text-sm mt-2">
-        A fun percussive desert theme when the player explores the desert areas.
-      </p>
-    </div>
-
-    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
-      <h3 class="text-xl font-semibold mb-2">Desolate Desert Village (Tanbii)</h3>
-      <audio controls loop class="w-full">
-        <source src="videogamemusic/desert_desolate.wav" type="audio/mpeg">
-      </audio>
-      <p class="text-gray-400 text-sm mt-2">
-        Ambient and eerie track to give the desolate village a sense of mystery. I used ethnic instrumentation to highlight the desert themes.
-      </p>
-    </div>
-
-    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
-      <h3 class="text-xl font-semibold mb-2">Desert Oasis Theme (Tanbii)</h3>
-      <audio controls loop class="w-full">
-        <source src="videogamemusic/desert_oasis.wav" type="audio/mpeg">
-      </audio>
-      <p class="text-gray-400 text-sm mt-2">
-        A calming track to let the player rest in the oasis. I was going for a spiritual feel.
-      </p>
-    </div>
-
-    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
-      <h3 class="text-xl font-semibold mb-2">Racing Game Menu Theme</h3>
-      <audio controls loop class="w-full">
-        <source src="videogamemusic/menu.wav" type="audio/mpeg">
-      </audio>
-      <p class="text-gray-400 text-sm mt-2">
-        An energetic menu theme for a cartoony racing game.
-      </p>
-    </div>
-
-    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
-      <h3 class="text-xl font-semibold mb-2">Shooter Game Loading Screen</h3>
-      <audio controls loop class="w-full">
-        <source src="videogamemusic/loadingscreenshooter.wav" type="audio/mpeg">
-      </audio>
-      <p class="text-gray-400 text-sm mt-2">
-        A hype UK grime-inspired loading screen theme for a fast paced shooter game.
-      </p>
-    </div>
-
-    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg mb-6">
-      <h3 class="text-xl font-semibold mb-2">Calm Theme</h3>
-      <audio controls class="w-full">
-        <source src="videogamemusic/savannah.wav" type="audio/mpeg">
-      </audio>
-      <p class="text-gray-400 text-sm mt-2">
-        An unused calm theme I originally made for a contemplative cutscene.
-      </p>
-    </div>
-
-    <div class="flex justify-center mt-10">
-      <a href="#personal" class="scroll-down text-cyan-400 text-3xl">↓</a>
-    </div>
-  </section>
-  <!-- Section 3: Personal Productions & Compositions -->
-  <section id="personal" class="min-h-screen flex flex-col justify-center px-6 md:px-20 pt-40">
-    <h2 class="text-4xl font-bold mb-12 text-cyan-400 text-center">Personal Productions & Compositions</h2>
-
-    <div class="flex flex-col md:flex-row gap-12">
-      <!-- Left Column: Instagram Reel + YouTube Video + Descriptions -->
-      <div class="flex flex-col items-center md:w-1/2 space-y-6">
-
-        <!-- Row for Instagram Reel and YouTube Video -->
-        <div class="flex flex-col md:flex-row gap-8 w-full items-center justify-center">
-
-          <!-- Instagram Reel -->
-          <div class="overflow-hidden rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105 aspect-[9/16] w-full max-w-[350px]">
-            <iframe
-              src="https://www.instagram.com/reel/DG8nDM_PyH7/embed"
-              class="w-full h-full"
-              allowfullscreen
-              frameborder="0">
-            </iframe>
+    <div class="wrap">
+      <div class="music-layout">
+        <aside class="player">
+          <div class="tv">
+            <div class="tv-screen idle" id="tv-screen" data-mode="waveform">
+              <div class="tv-grid" aria-hidden="true"></div>
+              <canvas id="tv-canvas"></canvas>
+              <div class="tv-note" id="tv-note" hidden>Scope needs the site served over http(s).<small>Run <code>python3 -m http.server</code> in the repo, or view it on GitHub Pages.</small></div>
+              <div class="tv-frame" id="tv-frame"></div>
+              <div class="tv-osd" id="tv-osd"></div>
+              <div class="tv-idle">No signal<small>Select a track</small></div>
+            </div>
+            <div class="tv-chin">
+              <span class="tv-brand">RZ</span>
+              <span class="tv-grille" aria-hidden="true"></span>
+              <span class="tv-led" id="tv-led" aria-hidden="true"></span>
+              <span class="tv-knob" id="tv-vol-knob" title="Volume" aria-hidden="true"></span>
+              <button class="tv-knob" id="tv-scope-knob" title="Scope mode: Y–T / X–Y" aria-label="Switch scope mode"></button>
+            </div>
           </div>
 
-          <!-- YouTube Landscape Video -->
-          <div class="overflow-hidden rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105 aspect-[16/9] w-full max-w-[700px]">
-            <iframe
-              src="https://www.youtube.com/embed/4YVK7DoqUfI"
-              class="w-full h-full"
-              allowfullscreen
-              frameborder="0">
-            </iframe>
+          <div class="transport">
+            <button class="tp-play" id="tp-play" aria-label="Play" disabled>
+              <svg class="i-play" viewBox="0 0 12 12"><path d="M2.5 1.5l8 4.5-8 4.5z" fill="currentColor"/></svg>
+              <svg class="i-pause" viewBox="0 0 12 12"><rect x="2.5" y="1.5" width="2.5" height="9" fill="currentColor"/><rect x="7" y="1.5" width="2.5" height="9" fill="currentColor"/></svg>
+            </button>
+            <div class="tp-main">
+              <div class="tp-row"><span class="tp-title" id="tp-title">Nothing playing</span><span class="tp-time" id="tp-time">0:00</span></div>
+              <div class="tp-bar disabled" id="tp-bar"><i id="tp-fill"></i></div>
+            </div>
+          </div>
+          <div class="tp-extra">
+            <div class="tp-scope" id="tp-scope" role="group" aria-label="Scope mode">
+              <button data-scope="yt" aria-pressed="true" title="Waveform over time">Y–T</button>
+              <button data-scope="xy" aria-pressed="false" title="Left vs right channel (Lissajous)">X–Y</button>
+            </div>
+            <div class="tp-vol">
+              <button class="tp-mute" id="tp-mute" aria-label="Mute">
+                <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2 6h2.5L8 3v10L4.5 10H2z" fill="currentColor"/><path class="w1" d="M10.5 5.5a3.5 3.5 0 0 1 0 5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path class="w2" d="M12.3 3.6a6 6 0 0 1 0 8.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path class="x" d="M10.5 6l4 4M14.5 6l-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              </button>
+              <input type="range" id="tp-volume" min="0" max="1" step="0.01" aria-label="Volume">
+            </div>
+          </div>
+          <div class="tp-screen" id="tp-screen" hidden>
+            <span>Screen</span>
+            <button data-mode="video" aria-pressed="true">Video</button>
+            <button data-mode="waveform" aria-pressed="false">Waveform</button>
           </div>
 
+          <div class="notes" id="notes">
+            <p>Choose a tape. Audio plays through the oscilloscope; video plays on the screen. Choose the same tape again to eject it.</p>
+          </div>
+        </aside>
+
+        <div class="picker">
+          <div id="shelf"></div>
         </div>
-
-
-
-
-        <!-- Descriptions -->
-        <div class="flex flex-col space-y-2 text-gray-400 text-sm text-center md:text-left">
-          <p>
-            Left: I am creating a Frutiger Aero inspired preset pack for Omnisphere VST. This Instagram reel is a cool demo I made showcasing some of the presets.
-          </p>
-          <p>
-            Right: I wanted to capture the beauty of the aurora borealis and the wintry feeling of Northern Sweden. I introduce a "snow motif" in the beginning, showing the settling night, and then the rapid arpeggios come in, depicting the Northern lights that illuminate the sky.
-          </p>
-        </div>
-
-      </div>
-
-
-
-
-
-
-      <!-- Right Column: Audio Tracks -->
-      <div class="flex flex-col md:w-1/2 space-y-6">
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-          <h3 class="text-xl font-semibold mb-2">Cyberlove</h3>
-          <audio controls class="w-full">
-            <source src="personal_projects/cyberlove.wav" type="audio/mpeg">
-          </audio>
-          <p class="text-gray-400 text-sm mt-2">
-            A synthwave pop beat that I plan to add some lyrics over.
-          </p>
-        </div>
-
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-          <h3 class="text-xl font-semibold mb-2">Pong</h3>
-          <audio controls class="w-full">
-            <source src="personal_projects/pong.wav" type="audio/mpeg">
-          </audio>
-          <p class="text-gray-400 text-sm mt-2">
-            A complex track with a "ping pong" percussive motif that takes you on an adventure.
-          </p>
-        </div>
-
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-          <h3 class="text-xl font-semibold mb-2">Ambition</h3>
-          <audio controls class="w-full">
-            <source src="personal_projects/ambition.wav" type="audio/mpeg">
-          </audio>
-          <p class="text-gray-400 text-sm mt-2">
-            An energetic trap beat with bells and synth leads.
-          </p>
-        </div>
-
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-          <h3 class="text-xl font-semibold mb-2">Immerse</h3>
-          <audio controls class="w-full">
-            <source src="personal_projects/immerse.wav" type="audio/mpeg">
-          </audio>
-          <p class="text-gray-400 text-sm mt-2">
-            A trap electronic fusion beat inspired by Sam Gellaitry.
-          </p>
-        </div>
-
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-lg">
-          <h3 class="text-xl font-semibold mb-2">San Bushmen Beat</h3>
-          <audio controls class="w-full">
-            <source src="personal_projects/afrobeat.wav" type="audio/mpeg">
-          </audio>
-          <p class="text-gray-400 text-sm mt-2">
-            Sampled the chants of the San bushmen who live in the Kalahari desert to make this beat.
-          </p>
-        </div>
-
-
       </div>
     </div>
+  </main>
 
-    <div class="flex justify-center mt-10">
-      <a href="#jazz" class="scroll-down text-cyan-400 text-3xl">↓</a>
-    </div>
-  </section>
-
-
-  <!-- Section 4: Jazz -->
-  <section id="jazz" class="min-h-screen flex flex-col justify-center items-center px-6 md:px-20 pt-40">
-    <h2 class="text-4xl font-bold mb-8 text-cyan-400">Improv Solos</h2>
-    <!-- Vertical Shorts Embed -->
-    <div class="flex flex-col md:flex-row md:justify-center md:items-start gap-8">
-      <div class="w-full max-w-sm aspect-[9/16] mb-8 hover-scale overflow-hidden rounded-2xl shadow-lg">
-        <iframe class="w-full h-full"
-                src="https://www.youtube.com/embed/ik8gDvygH88"
-                frameborder="0" allowfullscreen>
-        </iframe>
-      </div>
-
-      <div class="w-full max-w-sm aspect-[9/16] mb-8 hover-scale overflow-hidden rounded-2xl shadow-lg">
-        <iframe class="w-full h-full"
-                src="https://www.youtube.com/embed/CvqJLFOAzrM"
-                frameborder="0" allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer Disclaimer -->
-  <footer class="bg-gray-800 bg-opacity-90 text-gray-400 text-sm text-center py-6 mt-12">
-    <p>
-      © 2025 Ryan Zhang. All original music and compositions on this page are the property of Ryan Zhang.
-      Any works created for <span class="text-cyan-400 font-semibold">Tanbii</span> are owned by Tanbii.
-      Unauthorized use, reproduction, or distribution of this material is prohibited.
-    </p>
+  <footer class="site-footer">
+    <div class="wrap"><p>© 2026 Ryan Zhang. All original music on this page is the property of Ryan Zhang; works created for Tanbii are owned by Tanbii. Unauthorized use, reproduction, or distribution is prohibited.</p></div>
   </footer>
 
-  <!-- ScrollSpy Script -->
-  <script>
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("#sectionNav a");
-
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove("active-link");
-        if (link.getAttribute("href") === "#" + current) {
-          link.classList.add("active-link");
-        }
-      });
-    });
-  </script>
-
+  <script src="tracks.js"></script>
+  <script src="shelf.js"></script>
+  <script src="music.js"></script>
 </body>
 </html>

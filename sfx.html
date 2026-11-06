@@ -1,230 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SFX vault of Ryan Zhang</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-  .sfx-btn {
-    position: relative;
-    overflow: visible;
-    width: 6rem; height: 6rem;
-    border-radius: 50%;
-    background: #06b6d4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #111827;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-  }
-  .sfx-btn:hover { transform: scale(1.05); }
-
-  .sfx-btn::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    background: radial-gradient(circle, rgba(34,211,238,0.3) 20%, transparent 70%);
-    transform: scale(0);
-    transition: transform 0.4s ease;
-    border-radius: 50%;
-    z-index: 0;
-  }
-  .sfx-btn:hover::before { transform: scale(1); }
-  .sfx-btn:active::before {
-    background: radial-gradient(circle, rgba(34,211,238,0.6) 10%, transparent 60%);
-    transform: scale(1.5);
-    transition: transform 0.2s ease;
-  }
-  .sfx-btn span { position: relative; z-index: 10; }
-
-  .sfx-circle {
-    position: absolute;
-    top: -0.15rem;
-    left: -0.15rem;
-    width: 6.3rem;
-    height: 6.3rem;
-    transform: rotate(-90deg);
-    pointer-events: none;
-  }
-  .sfx-circle circle {
-    stroke: #fff;
-    stroke-width: 4;
-    fill: none;
-    stroke-dasharray: 339.292;
-    stroke-dashoffset: 339.292;
-  }
-
-  .sfx-label { color: #d1d5db; font-size: 1.125rem; margin-top: 0.5rem; text-align: center; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sound Effects — Ryan Zhang</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js"></script>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans">
-
-<nav class="fixed w-full bg-gray-800 bg-opacity-90 px-6 py-4 flex justify-between items-center shadow-lg z-50">
-  <a href="index.html" class="text-xl font-bold text-cyan-400">ryan zhang</a>
-  <a href="music.html" class="hover:text-cyan-400 text-2xl">← Back to Music</a>
-</nav>
-
-<section class="pt-32 px-6 md:px-20">
-  <h2 class="text-4xl font-bold mb-12 text-cyan-400">Tanbii</h2>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-
-    <!-- Example SFX button -->
-    <div class="flex flex-col items-center">
-      <button onclick="toggleSFX('questcomplete', this)" class="sfx-btn">
-        <span>Play</span>
-        <svg class="sfx-circle" viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r="54"></circle>
-        </svg>
-      </button>
-      <p class="sfx-label">Quest Complete</p>
-      <audio id="questcomplete" src="sfx/questcomplete.mp3"></audio>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-name" href="index.html">Ryan Zhang</a>
+      <nav class="site-nav">
+        <a href="index.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="writing.html">Writing</a>
+        <a href="music.html" aria-current="page">Music</a>
+        <a href="cv.html">CV</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="flex flex-col items-center">
-      <button onclick="toggleSFX('sand', this)" class="sfx-btn">
-        <span>Play</span>
-        <svg class="sfx-circle" viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r="54"></circle>
-        </svg>
-      </button>
-      <p class="sfx-label">Bottle of Sand</p>
-      <audio id="sand" src="sfx/sand.mp3"></audio>
+  <main>
+    <div class="wrap">
+      <h1 class="page-title">Sound Effects</h1>
+      <p class="page-intro"><a href="music.html">← Music</a></p>
+
+      <section class="section section-grid">
+        <p class="eyebrow">Tanbii</p>
+        <div class="sfx-grid">
+          <button class="sfx" data-src="media/music/sfx/questcomplete.mp3"><span class="state">Play</span><span class="name">Quest Complete</span><span class="bar"></span></button>
+          <button class="sfx" data-src="media/music/sfx/sand.mp3"><span class="state">Play</span><span class="name">Bottle of Sand</span><span class="bar"></span></button>
+          <button class="sfx" data-src="media/music/sfx/pageturn.mp3"><span class="state">Play</span><span class="name">Page Turn</span><span class="bar"></span></button>
+          <button class="sfx" data-src="media/music/sfx/button.mp3"><span class="state">Play</span><span class="name">Button Tap</span><span class="bar"></span></button>
+        </div>
+      </section>
+
+      <section class="section section-grid">
+        <p class="eyebrow">Game Creation Society</p>
+        <div class="sfx-grid">
+          <button class="sfx" data-src="media/music/sfx/fogwoman.mp3"><span class="state">Play</span><span class="name">Woman of the Fog Jumpscare</span><span class="bar"></span></button>
+          <button class="sfx" data-src="media/music/sfx/walkerscare.mp3"><span class="state">Play</span><span class="name">Giant Creature Jumpscare</span><span class="bar"></span></button>
+          <button class="sfx" data-src="media/music/sfx/jellyfishscare.mp3"><span class="state">Play</span><span class="name">Phantom Jellyfish Jumpscare</span><span class="bar"></span></button>
+          <button class="sfx" data-src="media/music/sfx/teleport.wav"><span class="state">Play</span><span class="name">Teleport Pad</span><span class="bar"></span></button>
+        </div>
+      </section>
     </div>
+  </main>
 
-    <div class="flex flex-col items-center">
-      <button onclick="toggleSFX('pageturn', this)" class="sfx-btn">
-        <span>Play</span>
-        <svg class="sfx-circle" viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r="54"></circle>
-        </svg>
-      </button>
-      <p class="sfx-label">Page Turn</p>
-      <audio id="pageturn" src="sfx/pageturn.mp3"></audio>
-    </div>
+  <script>
+    const audio = new Audio();
+    let active = null, raf = null;
 
-    <div class="flex flex-col items-center">
-      <button onclick="toggleSFX('button', this)" class="sfx-btn">
-        <span>Play</span>
-        <svg class="sfx-circle" viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r="54"></circle>
-        </svg>
-      </button>
-      <p class="sfx-label">Button Tap</p>
-      <audio id="button" src="sfx/button.mp3"></audio>
-    </div>
-
-  </div>
-</section>
-
-<section class="pt-32 px-6 md:px-20">
-  <h2 class="text-4xl font-bold mb-12 text-cyan-400">Game Creation Society</h2>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-
-    <div class="flex flex-col items-center">
-      <button onclick="toggleSFX('fogwoman', this)" class="sfx-btn">
-        <span>Play</span>
-        <svg class="sfx-circle" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"></circle></svg>
-      </button>
-      <p class="sfx-label">Woman of the Fog Jumpscare</p>
-      <audio id="fogwoman" src="sfx/fogwoman.mp3"></audio>
-    </div>
-
-    <div class="flex flex-col items-center">
-      <button onclick="toggleSFX('walkerscare', this)" class="sfx-btn">
-        <span>Play</span>
-        <svg class="sfx-circle" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"></circle></svg>
-      </button>
-      <p class="sfx-label">Giant Creature Jumpscare</p>
-      <audio id="walkerscare" src="sfx/walkerscare.mp3"></audio>
-    </div>
-
-    <div class="flex flex-col items-center">
-      <button onclick="toggleSFX('jellyfishscare', this)" class="sfx-btn">
-        <span>Play</span>
-        <svg class="sfx-circle" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"></circle></svg>
-      </button>
-      <p class="sfx-label">Phantom Jellyfish Jumpscare</p>
-      <audio id="jellyfishscare" src="sfx/jellyfishscare.mp3"></audio>
-    </div>
-
-    <div class="flex flex-col items-center">
-      <button onclick="toggleSFX('teleport', this)" class="sfx-btn">
-        <span>Play</span>
-        <svg class="sfx-circle" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"></circle></svg>
-      </button>
-      <p class="sfx-label">Teleport Pad</p>
-      <audio id="teleport" src="sfx/teleport.wav"></audio>
-    </div>
-
-  </div>
-</section>
-
-
-<script>
-  const currentlyPlaying = {};
-
-  function toggleSFX(id, button) {
-    const audio = document.getElementById(id);
-    const circle = button.querySelector('circle');
-    const r = circle.getAttribute('r');
-    const circumference = 2 * Math.PI * r;
-
-    // If audio is already playing, stop it
-    if (!audio.paused) {
-      audio.pause();
-      audio.currentTime = 0;
-      circle.style.transition = 'none';
-      circle.style.strokeDashoffset = circumference;
-      button.querySelector('span').textContent = 'Play';
-      return;
+    function reset(btn) {
+      if (!btn) return;
+      btn.classList.remove('playing');
+      btn.querySelector('.state').textContent = 'Play';
+      btn.querySelector('.bar').style.width = '0';
     }
+    function tick() {
+      if (active && audio.duration) active.querySelector('.bar').style.width = (audio.currentTime / audio.duration * 100) + '%';
+      raf = requestAnimationFrame(tick);
+    }
+    audio.addEventListener('ended', () => { reset(active); active = null; cancelAnimationFrame(raf); });
 
-    // Stop any other playing audio and reset their outlines
-    Object.keys(currentlyPlaying).forEach(otherId => {
-      const otherAudio = document.getElementById(otherId);
-      const otherCircle = currentlyPlaying[otherId].circle;
-      const otherButton = currentlyPlaying[otherId].button;
-      otherAudio.pause();
-      otherAudio.currentTime = 0;
-      otherCircle.style.transition = 'none';
-      otherCircle.style.strokeDashoffset = circumference;
-      otherButton.querySelector('span').textContent = 'Play';
-      delete currentlyPlaying[otherId];
-    });
+    document.querySelectorAll('.sfx').forEach(btn => btn.addEventListener('click', () => {
+      const same = active === btn;
+      audio.pause(); reset(active); active = null; cancelAnimationFrame(raf);
+      if (same) return;
+      audio.src = btn.dataset.src; audio.currentTime = 0; audio.play();
+      active = btn; btn.classList.add('playing'); btn.querySelector('.state').textContent = 'Stop';
+      tick();
+    }));
+  </script>
 
-    // Play audio
-    audio.currentTime = 0;
-    audio.play();
-    button.querySelector('span').textContent = 'Stop';
-    circle.style.transition = 'none';
-    circle.style.strokeDasharray = circumference;
-    circle.style.strokeDashoffset = circumference;
-
-    // Force reflow
-    void circle.offsetWidth;
-
-    // Animate circle
-    circle.style.transition = `stroke-dashoffset ${audio.duration}s linear`;
-    circle.style.strokeDashoffset = 0;
-
-    // Track current playing
-    currentlyPlaying[id] = { circle, button };
-
-    // Remove outline and reset button when audio ends
-    audio.onended = () => {
-      circle.style.transition = 'none';
-      circle.style.strokeDashoffset = circumference;
-      button.querySelector('span').textContent = 'Play';
-      delete currentlyPlaying[id];
-    };
-  }
-</script>
-
+  <footer class="site-footer">
+    <div class="wrap"><p>© 2026 Ryan Zhang. Works created for Tanbii are owned by Tanbii.</p></div>
+  </footer>
 </body>
 </html>
