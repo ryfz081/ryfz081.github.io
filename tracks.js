@@ -90,10 +90,10 @@ const TRACKS = [
   // ---- Improvisation ----
   { title: 'Solo I', shelf: 'improv', vertical: true,
     youtube: 'https://www.youtube.com/shorts/ik8gDvygH88',
-    description: 'An improvised solo.' },
+    description: 'An improvised synth solo on Daft Punk - Give Live Back to Music.' },
   { title: 'Solo II', shelf: 'improv', vertical: true,
     youtube: 'https://www.youtube.com/shorts/CvqJLFOAzrM',
-    description: 'An improvised solo.' },
+    description: 'An improvised melodica solo on Sade - Smooth Operator.' },
 
   // ---- Sound effects ----
   { title: 'Quest Complete', shelf: 'sfx', label: 'Tanbii', audio: 'media/music/sfx/questcomplete.mp3',
@@ -104,11 +104,11 @@ const TRACKS = [
     description: 'Journal interaction.' },
   { title: 'Button Tap', shelf: 'sfx', label: 'Tanbii', audio: 'media/music/sfx/button.mp3',
     description: 'Menu feedback.' },
-  { title: 'Woman of the Fog', shelf: 'sfx', label: 'Game Creation Society', audio: 'media/music/sfx/fogwoman.mp3',
+  { title: 'Jumpscare - Woman of the Fog', shelf: 'sfx', label: 'Game Creation Society', audio: 'media/music/sfx/fogwoman.mp3',
     description: 'Jumpscare.' },
-  { title: 'Giant Creature', shelf: 'sfx', label: 'Game Creation Society', audio: 'media/music/sfx/walkerscare.mp3',
+  { title: 'Jumpscare - Giant Creature', shelf: 'sfx', label: 'Game Creation Society', audio: 'media/music/sfx/walkerscare.mp3',
     description: 'Jumpscare.' },
-  { title: 'Phantom Jellyfish', shelf: 'sfx', label: 'Game Creation Society', audio: 'media/music/sfx/jellyfishscare.mp3',
+  { title: 'Jumpscare - Phantom Jellyfish', shelf: 'sfx', label: 'Game Creation Society', audio: 'media/music/sfx/jellyfishscare.mp3',
     description: 'Jumpscare.' },
   { title: 'Teleport Pad', shelf: 'sfx', label: 'Game Creation Society', audio: 'media/music/sfx/teleport.wav',
     description: 'Environmental loop.' },
